@@ -5,6 +5,7 @@ from launch.substitutions import Command, FindExecutable
 import os
 
 def generate_launch_description():
+    pkg_share = FindPackageShare('mypkg').find('mypkg')
     
     # Joint State Broadcasterの起動
     joint_state_broadcaster_spawner = Node(
@@ -15,14 +16,23 @@ def generate_launch_description():
     )
     
     # Forward Position Controllerの起動
-    forward_position_controller_spawner = Node(
+    # forward_position_controller_spawner = Node(
+    #     package='controller_manager',
+    #     executable='spawner',
+    #     arguments=['forward_position_controller',
+    #               '--controller-manager', '/controller_manager'],
+    # )
+    
+    # Joint Trajectory Controllerの起動
+    joint_trajectory_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['forward_position_controller',
+        arguments=['joint_trajectory_controller',
                   '--controller-manager', '/controller_manager'],
     )
     
     return LaunchDescription([
         joint_state_broadcaster_spawner,
-        forward_position_controller_spawner,
+        # forward_position_controller_spawner,
+        joint_trajectory_controller_spawner,
     ]) 

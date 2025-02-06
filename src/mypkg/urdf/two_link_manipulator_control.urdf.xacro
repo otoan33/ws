@@ -26,7 +26,8 @@
     <!-- Gazeboプラグインの設定 -->
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <parameters>$(find mypkg)/config/joint_controllers.yaml</parameters>
+            <!-- <parameters>$(find mypkg)/config/joint_controllers.yaml</parameters> -->
+            <parameters>$(find mypkg)/config/trajectory_controllers.yaml</parameters>
         </plugin>
     </gazebo>
 </robot> 

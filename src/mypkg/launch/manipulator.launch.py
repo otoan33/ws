@@ -59,10 +59,18 @@ def generate_launch_description():
     )
     
     # Forward Position Controllerの起動
-    forward_position_controller_spawner = Node(
+    #forward_position_controller_spawner = Node(
+    #    package='controller_manager',
+    #    executable='spawner',
+    #    arguments=['forward_position_controller',
+    #              '--controller-manager', '/controller_manager'],
+    #)
+    
+    # Joint Trajectory Controllerの起動
+    joint_trajectory_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['forward_position_controller',
+        arguments=['joint_trajectory_controller',
                   '--controller-manager', '/controller_manager'],
     )
     
@@ -71,5 +79,6 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         joint_state_broadcaster_spawner,
-        forward_position_controller_spawner,
+        #forward_position_controller_spawner,
+        joint_trajectory_controller_spawner,
     ]) 

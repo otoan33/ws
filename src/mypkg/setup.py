@@ -37,6 +37,7 @@ setup(
             'happy_node = mypkg.hello_node:main',
             'ptp_controller = mypkg.ptp_controller:main',
             'joint_commander = mypkg.joint_commander:main',
+            'joint_state_plotter = mypkg.joint_state_plotter:main',
         ],
     },
 )
