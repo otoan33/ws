@@ -6,4 +6,6 @@ source $(dirname $0)/.env
 (
   cd $(dirname $0)
   docker build -t $DOCKER_IMG:latest -f ./Dockerfile .
+
+  docker images -f "dangling=true" -q | xargs -r docker rmi
 )

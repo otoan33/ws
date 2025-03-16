@@ -1,0 +1,12 @@
+/**:
+  ros__parameters:
+    publish_rate: 100.0
+    use_sim_time: true 
+
+/physics_sim:
+  ros__parameters:
+    use_sim_time: true
+
+/gz_bridge:
+  ros__parameters:
+    publish_rate: 100.0 

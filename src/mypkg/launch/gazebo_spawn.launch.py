@@ -18,18 +18,18 @@ def generate_launch_description():
     )
     
     # Gazeboにロボットモデルをスポーン
-    spawn_entity = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        name='spawn_entity',
-        arguments=[
-            '-entity', 'two_link_manipulator',
-            '-topic', 'robot_description'
-        ],
-        output='screen'
-    )
+    # spawn_entity = Node(
+    #     package='gazebo_ros',
+    #     executable='spawn_entity.py',
+    #     name='spawn_entity',
+    #     arguments=[
+    #         '-entity', 'two_link_manipulator',
+    #         '-topic', 'robot_description'
+    #     ],
+    #     output='screen'
+    # )
     
     return LaunchDescription([
         gazebo,
-        spawn_entity,
+        # spawn_entity,
     ]) 

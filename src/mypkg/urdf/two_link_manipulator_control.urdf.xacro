@@ -6,28 +6,24 @@
             <plugin>gazebo_ros2_control/GazeboSystem</plugin>
         </hardware>
         <joint name="joint1">
-            <command_interface name="position">
-                <param name="min">-3.14</param>
-                <param name="max">3.14</param>
-            </command_interface>
+            <command_interface name="position"/>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
+            <state_interface name="effort"/>
         </joint>
         <joint name="joint2">
-            <command_interface name="position">
-                <param name="min">-3.14</param>
-                <param name="max">3.14</param>
-            </command_interface>
+            <command_interface name="position"/>
             <state_interface name="position"/>
             <state_interface name="velocity"/>
+            <state_interface name="effort"/>
         </joint>
     </ros2_control>
 
     <!-- Gazeboプラグインの設定 -->
     <gazebo>
         <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
-            <!-- <parameters>$(find mypkg)/config/joint_controllers.yaml</parameters> -->
-            <parameters>$(find mypkg)/config/trajectory_controllers.yaml</parameters>
+            <parameters>$(find mypkg)/config/joint_position_controllers.yaml</parameters>
+            <controlPeriod>0.001</controlPeriod>
         </plugin>
     </gazebo>
 </robot> 

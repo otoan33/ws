@@ -33,6 +33,12 @@ def generate_launch_description():
             FindPackageShare('gazebo_ros').find('gazebo_ros'), 
             '/launch/gazebo.launch.py'
         ]),
+        # launch_arguments={
+        #     # 'physics': 'dart',
+        #     'max_step_size': '0.001',
+        #     'real_time_factor': '0.2',
+        #     # 'verbose': 'true'  # デバッグ用に詳細なログを出力
+        # }.items()
     )
     
     # Gazeboにロボットモデルをスポーン
@@ -58,19 +64,18 @@ def generate_launch_description():
                   '--controller-manager', '/controller_manager'],
     )
     
-    # Forward Position Controllerの起動
-    #forward_position_controller_spawner = Node(
-    #    package='controller_manager',
-    #    executable='spawner',
-    #    arguments=['forward_position_controller',
-    #              '--controller-manager', '/controller_manager'],
-    #)
+    # Joint Group Position Controllerの起動
+    # joint_group_position_controller_spawner = Node(
+    #     package='controller_manager',
+    #     executable='spawner',
+    #     arguments=['joint_group_position_controller',
+    #               '--controller-manager', '/controller_manager'],
+    # )
     
-    # Joint Trajectory Controllerの起動
-    joint_trajectory_controller_spawner = Node(
+    joint_position_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
-        arguments=['joint_trajectory_controller',
+        arguments=['joint_position_controller',
                   '--controller-manager', '/controller_manager'],
     )
     
@@ -79,6 +84,6 @@ def generate_launch_description():
         gazebo,
         spawn_entity,
         joint_state_broadcaster_spawner,
-        #forward_position_controller_spawner,
-        joint_trajectory_controller_spawner,
+        # joint_group_position_controller_spawner,
+        joint_position_controller_spawner,
     ]) 

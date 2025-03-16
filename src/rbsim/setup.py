@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 import os
 from glob import glob
 
-package_name = 'mypkg'
+package_name = 'rbsim'
 
 setup(
     name=package_name,
@@ -34,12 +34,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'happy_node = mypkg.hello_node:main',
-            'ptp_controller = mypkg.ptp_controller:main',
-            'traj_controller = mypkg.trajectory_controller:main',
-            'joint_commander = mypkg.joint_commander:main',
-            'joint_state_plotter = mypkg.joint_state_plotter:main',
-            'joint_group_controller = mypkg.joint_group_controller:main',
+            'joint_commander = rbsim.joint_commander:main',
+            'cmd_relay = rbsim.cmd_relay:main',
         ],
     },
 )
